@@ -43,6 +43,14 @@ public class GreetingResource {
     }
 
     @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path("/query/{name}")
+    public String query(@PathParam("name") final String name) {
+        log.info("Table name: " + name);
+        return "Table name: " + name;
+    }
+
+    @GET
     @Path("/lastletter/{name}")
     @Produces(MediaType.TEXT_PLAIN)
     public String lastLetter(@PathParam("name") String name) {
